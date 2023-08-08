@@ -1,2 +1,2 @@
 #!/bin/bash
-python3 -m compileall "$PYFILE" && cp __pycache__/* "$PYFILEc" && rm -Rf __pycache__/
+python3 -c "import py_compile; py_compile.compile('$PYFILE', '$PYFILEc')"
