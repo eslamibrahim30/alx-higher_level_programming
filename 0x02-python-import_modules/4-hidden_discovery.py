@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
-    print("my_secret_santa")
-    print("print_hidden")
-    print("print_school")
+    from hidden_4 import *
+    names = dir()
+    for name in names:
+        if name[0] != '_':
+            print("{}".format(name))
