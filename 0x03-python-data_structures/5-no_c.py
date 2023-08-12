@@ -8,4 +8,3 @@ def no_c(my_string):
     for i in list_chars:
         new_string += i
     return new_string
-
