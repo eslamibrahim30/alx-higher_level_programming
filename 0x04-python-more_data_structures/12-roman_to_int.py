@@ -1,7 +1,11 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    if roman_string is None or  not isinstance(roman_string, str):
+    if roman_string is None:
         return None
+    if not isinstance(roman_string, str):
+        return None
+    if len(roman_string) == 0:
+        return 0
     romans_small = [('I', 1), ('V', 5)]
     romans_mid = [('X', 10), ('L', 50)]
     romans_big = [('C', 100), ('D', 500), ('M', 1000)]
