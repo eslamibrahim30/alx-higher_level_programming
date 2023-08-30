@@ -2,5 +2,6 @@
 """This module is an example of 
 how to define a class"""
 class Square:
-    """This class does nothing"""
+    """This class does nothing
+    """
     pass 
