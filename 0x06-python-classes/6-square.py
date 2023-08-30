@@ -58,7 +58,9 @@ class Square():
         value: the given value
     """
     def my_print(self):
-        max_space = max(self.__position[1], self.__position[0])
+        max_space = 0
+        if self.__position[0] != 0:
+            max_space = max(self.__position[1], self.__position[0])
         if self.__size == 0:
             print()
         else:
