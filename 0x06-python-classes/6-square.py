@@ -16,11 +16,12 @@ class Square():
             raise ValueError('size must be >= 0')
         else:
             self.__size = size
-        if not isinstance(position, tuple) or not len(position) == 2:
-            raise TypeError('position must be a tuple of 2 positive integers')
-        elif not isinstance(position[0], int) or not isinstance(position[1], int):
-            raise TypeError('position must be a tuple of 2 positive integers')
-        elif position[0] < 0 or position[1] < 0:
+        if (
+                not isinstance(position, tuple) or
+                not len(position) == 2 or
+                not isinstance(position[0], int) or
+                not isinstance(position[1], int) or
+                position[0] < 0 or position[1] < 0):
             raise TypeError('position must be a tuple of 2 positive integers')
         else:
             self.__position = position
@@ -44,11 +45,12 @@ class Square():
     """
     @size.setter
     def size(self, value):
-        if not isinstance(value, int):
+        if not isinstance(size, int):
             raise TypeError('size must be an integer')
-        if value < 0:
+        elif size < 0:
             raise ValueError('size must be >= 0')
-        self.__size = value
+        else:
+            self.__size = size
     """
     This class method is used to set the __size attribute
     by a given value
@@ -79,11 +81,12 @@ class Square():
     """
     @position.setter
     def position(self, value):
-        if not isinstance(position, tuple) or not len(position) == 2:
-            raise TypeError('position must be a tuple of 2 positive integers')
-        elif not isinstance(position[0], int) or not isinstance(position[1], int):
-            raise TypeError('position must be a tuple of 2 positive integers')
-        elif position[0] < 0 or position[1] < 0:
+        if (
+                not isinstance(position, tuple) or
+                not len(position) == 2 or
+                not isinstance(position[0], int) or
+                not isinstance(position[1], int) or
+                position[0] < 0 or position[1] < 0):
             raise TypeError('position must be a tuple of 2 positive integers')
         else:
             self.__position = position
