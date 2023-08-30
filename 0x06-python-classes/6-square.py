@@ -61,15 +61,13 @@ class Square():
         max_space = 0
         if self.__position[0] != 0:
             max_space = max(self.__position[1], self.__position[0])
-        if self.__size == 0:
+        print()
+        for i in range(self.__size):
+            for j in range(max_space):
+                print(" ", end="")
+            for j in range(self.__size):
+                print("#", end="")
             print()
-        else:
-            for i in range(self.__size):
-                for j in range(max_space):
-                    print(" ", end="")
-                for j in range(self.__size):
-                    print("#", end="")
-                print()
     """
     This class method prints in stdout the square with the character #
     """
