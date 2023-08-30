@@ -67,6 +67,7 @@ class Square():
             for j in range(self.__size):
                 print("#", end="")
             print()
+        print()
     """
     This class method prints in stdout the square with the character #
     """
