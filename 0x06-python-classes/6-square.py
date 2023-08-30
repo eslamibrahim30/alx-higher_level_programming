@@ -58,12 +58,10 @@ class Square():
         value: the given value
     """
     def my_print(self):
-        max_space = 0
-        if self.__position[0] != 0:
-            max_space = max(self.__position[1], self.__position[0])
-        print()
+        for i in range(self.__position[1]):
+            print()
         for i in range(self.__size):
-            for j in range(max_space):
+            for j in range(self.__position[0]):
                 print(" ", end="")
             for j in range(self.__size):
                 print("#", end="")
