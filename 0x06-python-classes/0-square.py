@@ -2,4 +2,4 @@
 class Square:
     """This Function does nothing.
     """
-    pass
+    pass # An empty block
