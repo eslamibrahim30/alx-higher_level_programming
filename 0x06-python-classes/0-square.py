@@ -1,5 +1,5 @@
 #!/usr/bin/python3
+# An empty block
 class Square:
-    """This Function does nothing.
-    """
-    pass # An empty block
+    # This class does nothing
+    pass 
