@@ -51,10 +51,11 @@ class Square():
     """
     def my_print(self):
         max_space = 0
-        if self.__position[0] > self.__position[1]:
-            max_space = self.__position[0]
-        else:
-            max_space = self.__position[1]
+        if not self__position is None:
+            if self.__position[0] > self.__position[1]:
+                max_space = self.__position[0]
+            else:
+                max_space = self.__position[1]
         if self.__size == 0:
             print()
         else:
