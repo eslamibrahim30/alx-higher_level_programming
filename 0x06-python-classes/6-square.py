@@ -12,14 +12,18 @@ class Square():
     def __init__(self, size=0, position=(0, 0)):
         if not isinstance(size, int):
             raise TypeError('size must be an integer')
-        if size < 0:
+        elif size < 0:
             raise ValueError('size must be >= 0')
+        else:
+            self.__size = size
         if not isinstance(position, tuple) or not len(position) == 2:
             raise TypeError('position must be a tuple of 2 positive integers')
-        if position[0] < 0 or position[1] < 0:
+        elif not isinstance(position[0], int) or not isinstance(position[1], int):
             raise TypeError('position must be a tuple of 2 positive integers')
-        self.__size = size
-        self.__position = position
+        elif position[0] < 0 or position[1] < 0:
+            raise TypeError('position must be a tuple of 2 positive integers')
+        else:
+            self.__position = position
     """
     This class method initializes an inistance of the class
         Args:
@@ -75,11 +79,14 @@ class Square():
     """
     @position.setter
     def position(self, value):
-        if not isinstance(value, tuple) or not len(value) == 2:
+        if not isinstance(position, tuple) or not len(position) == 2:
             raise TypeError('position must be a tuple of 2 positive integers')
-        if position[0] < 0 or position[1] < 0:
+        elif not isinstance(position[0], int) or not isinstance(position[1], int):
             raise TypeError('position must be a tuple of 2 positive integers')
-        self.__position = value
+        elif position[0] < 0 or position[1] < 0:
+            raise TypeError('position must be a tuple of 2 positive integers')
+        else:
+            self.__position = position
     """
     This class method is used to set the __position attribute
     by a given value.
