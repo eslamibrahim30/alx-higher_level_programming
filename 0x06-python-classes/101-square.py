@@ -99,9 +99,7 @@ class Square():
     """
     def __str__(self):
         out = ""
-        if self.__size == 0:
-            out += "\n"
-        else:
+        if self.__size != 0:
             for i in range(self.__position[1]):
                 out += "\n"
             for i in range(self.__size):
