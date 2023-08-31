@@ -10,7 +10,8 @@ class MagicClass():
     It is used to create an instance of a circle in our program
     """
     def __init__(self, raduis=0):
-        if  type(raduis) is not int and type(raduis) is not float:
+        self.__raduis = 0
+        if type(raduis) is not int and type(raduis) is not float:
             raise TypeError('radius must be a number')
         else:
             self.__raduis = raduis
