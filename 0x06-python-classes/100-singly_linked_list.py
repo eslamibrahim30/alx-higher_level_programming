@@ -12,7 +12,7 @@ class Node():
     """
     def __init__(self, data, next_node=None):
         self.__next_node = None
-        if type(data) is not int:
+        if not isinstance(data, int):
             raise TypeError("data must be an integer")
         else:
             self.__data = data
@@ -27,7 +27,7 @@ class Node():
 
     @data.setter
     def data(self, value):
-        if type(value) is not int:
+        if not isinstance(data, int):
             raise TypeError("data must be an integer")
         else:
             self.__data = value
