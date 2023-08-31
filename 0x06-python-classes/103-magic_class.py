@@ -29,7 +29,3 @@ class MagicClass():
     """
     This class method calculates the circumference of the circle.
     """
-
-
-import dis
-dis.dis(MagicClass)
