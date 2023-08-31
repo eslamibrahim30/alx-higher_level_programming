@@ -51,8 +51,9 @@ class SinglyLinkedList():
         ptr = self.__head
         while ptr is not None:
             out += str(ptr.data)
-            out += "\n"
             ptr = ptr.next_node
+            if ptr is not None:
+                out += "\n"
         return out
     def __repr__(self):
         return self.__str__()
