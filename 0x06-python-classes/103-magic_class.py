@@ -2,6 +2,7 @@
 """
 This module contains a magic class for a circle
 """
+import math
 
 
 class MagicClass():
