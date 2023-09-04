@@ -72,6 +72,8 @@ class Rectangle:
     """
     def __str__(self):
         out = ""
+        if self.__height == 0 or self.__width == 0:
+            return out
         for i in range(self.__height):
             for j in range(self.__width):
                 out += "#"
