@@ -83,8 +83,8 @@ class Rectangle:
     the rectangle, aimed at the user.
     """
     def __repr__(self):
-        return "{}({}, {})".format(type(self).__name__,
-                self.__width, self.__height)
+        return "{}({}, {})".format(
+                type(self).__name__, self.__width, self.__height)
     """
     This class method provides the official string representation of
     the rectangle, aimed at the programmer.
