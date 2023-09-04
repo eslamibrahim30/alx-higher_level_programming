@@ -10,21 +10,18 @@ def matrix_divided(matrix, div):
     """
     This function divides all elements of a matrix by a number
     """
-    is_matrix = 1
+    message = "matrix must be a matrix (list of lists) of integers/floats"
     if matrix is None or len(matrix) == 0:
-        is_matrix = 0
+        raise TypeError(message)
     if type(matrix) is not list:
-        is_matrix = 0
+        raise TypeError(message)
     for row in matrix:
         if type(row) is not list:
-            is_matrix = 0
+            raise TypeError(message)
     for row in matrix:
         for e in row:
             if type(e) not in [int, float]:
-                is_matrix = 0
-    message = "matrix must be a matrix (list of lists) of integers/floats"
-    if is_matrix == 0:
-        raise TypeError(message)
+                raise TypeError(message)
     row_len = len(matrix[0])
     for row in matrix:
         if len(row) != row_len:
