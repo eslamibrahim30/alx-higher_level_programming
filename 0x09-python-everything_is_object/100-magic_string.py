@@ -1,4 +1,4 @@
 #!/usr/bin/python3
-def magic_string():
-    magic_string.i += 1; return "{}".format(magic_string.i * "BestSchool, ")[:-2]
-magic_string.i = 0
+def magic_string(counter=[0]):
+    counter[0] += 1
+    return "{}".format(counter[0] * "BestSchool, ")[:-2]
