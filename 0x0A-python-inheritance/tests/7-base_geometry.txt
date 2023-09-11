@@ -14,3 +14,4 @@ Traceback (most recent call last):
 	...
 ValueError: length must be greater than 0
 >>> length.integer_validator(None, 1)
+>>> length.integer_validator("width", 2222222222222222222222)
