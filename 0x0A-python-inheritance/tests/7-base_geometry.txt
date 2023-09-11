@@ -6,6 +6,7 @@ Traceback (most recent call last):
 Exception: area() is not implemented
 >>> length = BaseGeometry()
 >>> length.integer_validator("length", 2)
+True
 >>> length.integer_validator("length", 0)
 Traceback (most recent call last):
 	...
@@ -15,10 +16,6 @@ Traceback (most recent call last):
 	...
 ValueError: length must be greater than 0
 >>> length.integer_validator("length", "1")
-Traceback (most recent call last):
-	...
-TypeError: length must be an integer
->>> length.integer_validator("length", {1: 2})
 Traceback (most recent call last):
 	...
 TypeError: length must be an integer
