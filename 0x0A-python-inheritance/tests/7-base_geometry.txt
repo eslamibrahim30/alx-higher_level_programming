@@ -14,4 +14,7 @@ Traceback (most recent call last):
 	...
 ValueError: length must be greater than 0
 >>> length.integer_validator(None, 1)
->>> length.integer_validator("width", 2222222222222222222222)
+>>> BaseGeometry.area(None)
+Traceback (most recent call last):
+	...
+Exception: area() is not implemented
