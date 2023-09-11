@@ -13,8 +13,7 @@ TypeError: length must be an integer
 Traceback (most recent call last):
 	...
 ValueError: length must be greater than 0
->>> length.integer_validator(None, 1)
->>> BaseGeometry.integer_validator(length, "width", -3)
+>>> length.integer_validator("length", [1, 2])
 Traceback (most recent call last):
 	...
-ValueError: width must be greater than 0
+TypeError: length must be an integer
