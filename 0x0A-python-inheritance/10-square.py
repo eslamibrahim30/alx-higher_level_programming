@@ -11,8 +11,8 @@ class Square(Rectangle):
     This class is used to define a square.
     """
     def __init__(self, size):
-        super().__init__(size, size)
         if Rectangle.integer_validator(self, "size", size):
+            super().__init__(size, size)
             self.__size = size
     """
     This method initializes a given instance of the Square class.
