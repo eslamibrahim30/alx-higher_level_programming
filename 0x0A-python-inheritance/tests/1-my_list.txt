@@ -4,3 +4,6 @@
 >>> list1 = MyList([2, 3, 1])
 >>> list1.print_sorted()
 [1, 2, 3]
+>>> list2 = MyList()
+>>> list2.print_sorted()
+[]
