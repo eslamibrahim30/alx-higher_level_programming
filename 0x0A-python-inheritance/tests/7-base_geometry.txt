@@ -14,8 +14,7 @@ Traceback (most recent call last):
 	...
 ValueError: length must be greater than 0
 >>> length.integer_validator(None, 1)
->>> BaseGeometry.integer_validator(None, "width", 3)
->>> BaseGeometry.integer_validator(None, "width", -3)
+>>> BaseGeometry.integer_validator(length, "width", -3)
 Traceback (most recent call last):
 	...
 ValueError: width must be greater than 0
