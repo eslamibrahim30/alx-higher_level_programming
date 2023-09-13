@@ -21,7 +21,7 @@ class Student:
     This method  returns the dictionary description of the student object.
     """
     def to_json(self, attrs=None):
-        if attrs == None:
+        if attrs is None:
             return vars(self)
         all_vars = vars(self)
         filtered = []
