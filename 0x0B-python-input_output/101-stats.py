@@ -3,8 +3,6 @@
 This module for log parsing.
 """
 import sys
-from time import sleep
-line = ""
 line_c = 0
 line_list = None
 total_size = 0
@@ -32,6 +30,7 @@ try:
             s_codes[line_list[-2]] += 1
             line_c += 1
 except KeyboardInterrupt:
+    sys.stderr.flush()
     print("File size: {}".format(total_size))
     for i in s_codes:
         if s_codes[i] > 0:
