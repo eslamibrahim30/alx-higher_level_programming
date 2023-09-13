@@ -40,5 +40,6 @@ except KeyboardInterrupt:
         if s_codes[i] > 0:
             msg += "{}: {}\n".format(i, s_codes[i])
     print(msg, end="")
-    time.sleep(1)
     traceback.print_exc()
+finally:
+    time.sleep(1)
