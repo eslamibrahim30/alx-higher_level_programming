@@ -16,8 +16,7 @@ class Student:
     This method for initializing a student object.
     """
     def to_json(self):
-        class_to_json = __import__('8-class_to_json').class_to_json
-        return class_to_json(self)
+        return vars(self)
     """
     This method  returns the dictionary description of the student object.
     """
