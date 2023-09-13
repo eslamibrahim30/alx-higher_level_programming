@@ -3,6 +3,8 @@
 This module for log parsing.
 """
 import sys
+import time
+import traceback
 line_c = 0
 line_list = None
 total_size = 0
@@ -17,9 +19,12 @@ s_codes = {
         '405': 0,
         '500': 0
 }
-for line in sys.stdin:
-    try:
+try:
+    for line in sys.stdin:
         line_list = line.split()
+        total_size += int(line_list[-1])
+        s_codes[line_list[-2]] += 1
+        line_c += 1
         if line_c == 10:
             msg = ""
             msg += "File size: {}\n".format(total_size)
@@ -28,9 +33,12 @@ for line in sys.stdin:
                     msg += "{}: {}\n".format(i, s_codes[i])
             print(msg, end="")
             line_c = 0
-        else:
-            total_size += int(line_list[-1])
-            s_codes[line_list[-2]] += 1
-            line_c += 1
-    except KeyboardInterrupt:
-        print(msg, end="")
+except KeyboardInterrupt:
+    msg = ""
+    msg += "File size: {}\n".format(total_size)
+    for i in s_codes:
+        if s_codes[i] > 0:
+            msg += "{}: {}\n".format(i, s_codes[i])
+    print(msg, end="")
+    time.sleep(1)
+    traceback.print_exc()
