@@ -17,8 +17,8 @@ s_codes = {
         '405': 0,
         '500': 0
 }
-try:
-    for line in sys.stdin:
+for line in sys.stdin:
+    try:
         line_list = line.split()
         if line_c == 10:
             msg = ""
@@ -32,5 +32,5 @@ try:
             total_size += int(line_list[-1])
             s_codes[line_list[-2]] += 1
             line_c += 1
-except KeyboardInterrupt:
-    print(msg, end="")
+    except KeyboardInterrupt:
+        print(msg, end="")
