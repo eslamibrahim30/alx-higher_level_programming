@@ -16,7 +16,7 @@ class Rectangle(Base):
         self.x = x
         self.y = y
     """
-    This method initializes a Rectangle object.
+    This method initializes each attribute in a Rectangle object.
     """
     @property
     def width(self):
