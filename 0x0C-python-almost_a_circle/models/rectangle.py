@@ -2,7 +2,8 @@
 """
 This module for Rectangle class.
 """
-from .base import Base
+from models.base import Base
+
 
 class Rectangle(Base):
     """
