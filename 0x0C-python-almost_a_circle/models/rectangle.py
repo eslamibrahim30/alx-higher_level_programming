@@ -3,7 +3,7 @@
 This module for Rectangle class.
 """
 import sys
-sys.path.append(r'/alx-higher_level_programming/0x0C-python-almost_a_circle')
+sys.path.append('..')
 from models.base import Base
 
 
