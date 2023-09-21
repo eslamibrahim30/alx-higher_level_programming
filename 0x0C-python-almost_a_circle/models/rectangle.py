@@ -2,8 +2,6 @@
 """
 This module for Rectangle class.
 """
-import sys
-sys.path.append('..')
 from models.base import Base
 
 
