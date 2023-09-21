@@ -171,3 +171,15 @@ class Rectangle(Base):
         else:
             for key in kwargs:
                 setattr(self, key, kwargs[key])
+
+    def to_dictionary(self):
+        """
+        This class method returns the dictionary representation of a Rectangle.
+        """
+        rect_dict = {}
+        rect_dict['id'] = self.id
+        rect_dict['width'] = self.width
+        rect_dict['height'] = self.height
+        rect_dict['x'] = self.x
+        rect_dict['y'] = self.y
+        return rect_dict
