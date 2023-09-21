@@ -63,5 +63,21 @@ class TestSquare(unittest.TestCase):
         my_str = Square.__str__(Square(5, 0, 0, 25))
         self.assertEqual("[Square] (25) 0/0 - 5", my_str)
 
+    def testSquareUpdate(self):
+        r = Square(4, 2, 1, 12)
+        self.assertEqual("[Square] (12) 2/1 - 4", r.__str__())
+        r.update(13)
+        self.assertEqual("[Square] (13) 2/1 - 4", r.__str__())
+        r.update(12, 3)
+        self.assertEqual("[Square] (12) 2/1 - 3", r.__str__())
+        r.update(height=1)
+        self.assertEqual("[Square] (12) 2/1 - 3", r.__str__())
+        r.update(y=1, width=2, x=3, id=89)
+        self.assertEqual("[Square] (89) 3/1 - 2", r.__str__())
+        r.update(4, 6, y=8, x=9)
+        self.assertEqual("[Square] (4) 3/1 - 6", r.__str__())
+        r.update(1, y=8, x=9)
+        self.assertEqual("[Square] (1) 3/1 - 6", r.__str__())
+
 if __name__ == '__main__':
     unittest.main()
