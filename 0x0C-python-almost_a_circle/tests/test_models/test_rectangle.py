@@ -72,6 +72,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual("##\n##", r.display())
         self.assertEqual("##\n##", Rectangle.display(r))
         self.assertEqual("##\n##\n##", Rectangle.display(Rectangle(2, 3)))
+        self.assertEqual("\n #\n #", Rectangle.display(Rectangle(1, 2, 1, 1)))
 
     def testRectangleStr(self):
         r = Rectangle(4, 6, 2, 1, 12)
@@ -79,7 +80,6 @@ class TestBase(unittest.TestCase):
         self.assertEqual("[Rectangle] (12) 2/1 - 4/6", Rectangle.__str__(r))
         my_str = Rectangle.__str__(Rectangle(5, 5, 0, 0, 25))
         self.assertEqual("[Rectangle] (25) 0/0 - 5/5", my_str)
-
 
 if __name__ == '__main__':
     unittest.main()
