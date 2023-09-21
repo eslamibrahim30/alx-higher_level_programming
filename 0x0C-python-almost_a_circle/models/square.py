@@ -15,6 +15,26 @@ class Square(Rectangle):
         """
         super().__init__(size, size, x, y, id)
 
+    @property
+    def size(self):
+        """
+        This class method is used to retrieve the __width attribute
+        Returns:
+            the width value of a Square object
+        """
+        return self.width
+
+    @size.setter
+    def size(self, size):
+        """
+        This class method is used to set the __width attribute
+        by a given value.
+        Args:
+            size: the given value of the size of the square
+        """
+        self.width = size
+        self.height = size
+
     def __str__(self):
         """
         This class method returns the string representation of
