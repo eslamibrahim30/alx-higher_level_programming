@@ -30,6 +30,12 @@ class TestBase(unittest.TestCase):
         self.assertIsInstance(b2, Base)
         self.assertEqual(b2.id, 2)
 
+    def testBaseToJSONString(self):
+        dictionary = {'x': 2, 'width': 10, 'id': 1, 'height': 7, 'y': 8}
+        json_dictionary = Base.to_json_string([dictionary])
+        expected_json = '[{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}]'
+        self.assertEqual(type(json_dictionary), str)
+        self.assertEqual(json_dictionary, expected_json)
 
 if __name__ == '__main__':
     unittest.main()
