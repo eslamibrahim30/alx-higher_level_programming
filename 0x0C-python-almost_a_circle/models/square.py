@@ -65,3 +65,14 @@ class Square(Rectangle):
         else:
             for key in kwargs:
                 setattr(self, key, kwargs[key])
+
+    def to_dictionary(self):
+        """
+        This class method returns the dictionary representation of a Square.
+        """
+        rect_dict = {}
+        rect_dict['id'] = self.id
+        rect_dict['size'] = self.size
+        rect_dict['x'] = self.x
+        rect_dict['y'] = self.y
+        return rect_dict
