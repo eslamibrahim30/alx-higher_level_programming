@@ -134,3 +134,13 @@ class Rectangle(Base):
                 my_display += "\n"
         print(my_display)
         return my_display
+
+    def __str__(self):
+        """
+        This class method returns the string representation of
+        a rectangle.
+        """
+        rect_str = "[Rectangle] "
+        rect_str += "({}) {}/{} ".format(self.id, self.x, self.y)
+        rect_str += "- {}/{}".format(self.width, self.height)
+        return rect_str
