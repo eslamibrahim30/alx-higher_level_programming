@@ -149,20 +149,25 @@ class Rectangle(Base):
         rect_str += "- {}/{}".format(self.width, self.height)
         return rect_str
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
-        This class method assigns an argument to each attribute.
+        This class method assigns an argument to each attribute
+        of the Rectangle object.
         """
         i = 0
-        for arg in args:
-            if i == 0:
-                self.id = arg
-            elif i == 1:
-                self.width = arg
-            elif i == 2:
-                self.height = arg
-            elif i == 3:
-                self.x = arg
-            elif i == 4:
-                self.y = arg
-            i += 1
+        if args:
+            for arg in args:
+                if i == 0:
+                    self.id = arg
+                elif i == 1:
+                    self.width = arg
+                elif i == 2:
+                    self.height = arg
+                elif i == 3:
+                    self.x = arg
+                elif i == 4:
+                    self.y = arg
+                i += 1
+        else:
+            for key in kwargs:
+                setattr(self, key, kwargs[key])
