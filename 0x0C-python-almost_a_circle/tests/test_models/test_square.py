@@ -10,6 +10,15 @@ class TestSquare(unittest.TestCase):
     """
     This class for testing a Square class.
     """
+    def testSquareGetters(self):
+        r = Square(2)
+        self.assertEqual(2, r.size)
+
+    def testSquareSetters(self):
+        r = Square(1, 1)
+        r.size = 2
+        self.assertEqual(2, r.size)
+
     def testSquareHandlingErrorsSize(self):
         with self.assertRaises(TypeError) as et:
             r = Square('1', 3, 4)
