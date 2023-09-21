@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 """
-Unittest for Base class.
+Unittest for Rectangle class.
 """
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
 
 
-class TestBase(unittest.TestCase):
+class TestRectangle(unittest.TestCase):
     """
-    This class for testing a Base class.
+    This class for testing a Rectangle class.
     """
     def testRectangleGetters(self):
         r = Rectangle(2, 3, 0, 0)
