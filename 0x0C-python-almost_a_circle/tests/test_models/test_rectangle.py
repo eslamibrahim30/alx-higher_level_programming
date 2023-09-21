@@ -96,5 +96,16 @@ class TestRectangle(unittest.TestCase):
         r.update(1, y=8, x=9)
         self.assertEqual("[Rectangle] (1) 3/1 - 6/1", r.__str__())
 
+    def testRectangleToDictionary(self):
+        r1 = Rectangle(10, 2, 1, 9, 1)
+        check_dict = {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}
+        rect1_dict = r1.to_dictionary()
+        self.assertEqual(dict, type(rect1_dict))
+        self.assertEqual(check_dict, rect1_dict)
+        r2 = Rectangle(3, 11)
+        new_dict = rect1_dict
+        r2.update(**new_dict)
+        self.assertNotEquals(r1, r2)
+
 if __name__ == '__main__':
     unittest.main()
