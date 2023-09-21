@@ -148,3 +148,21 @@ class Rectangle(Base):
         rect_str += "({}) {}/{} ".format(self.id, self.x, self.y)
         rect_str += "- {}/{}".format(self.width, self.height)
         return rect_str
+
+    def update(self, *args):
+        """
+        This class method assigns an argument to each attribute.
+        """
+        i = 0
+        for arg in args:
+            if i == 0:
+                self.id = arg
+            elif i == 1:
+                self.width = arg
+            elif i == 2:
+                self.height = arg
+            elif i == 3:
+                self.x = arg
+            elif i == 4:
+                self.y = arg
+            i += 1
