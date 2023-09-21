@@ -81,5 +81,13 @@ class TestBase(unittest.TestCase):
         my_str = Rectangle.__str__(Rectangle(5, 5, 0, 0, 25))
         self.assertEqual("[Rectangle] (25) 0/0 - 5/5", my_str)
 
+    def testRectangleUpdate(self):
+        r = Rectangle(4, 6, 2, 1, 12)
+        self.assertEqual("[Rectangle] (12) 2/1 - 4/6", r.__str__())
+        r.update(13)
+        self.assertEqual("[Rectangle] (13) 2/1 - 4/6", r.__str__())
+        r.update(12, 3)
+        self.assertEqual("[Rectangle] (12) 2/1 - 3/6", r.__str__())
+
 if __name__ == '__main__':
     unittest.main()
