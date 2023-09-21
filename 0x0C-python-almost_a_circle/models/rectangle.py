@@ -127,7 +127,11 @@ class Rectangle(Base):
         with the character #.
         """
         my_display = ""
+        for i in range(self.y):
+            my_display += "\n"
         for i in range(self.height):
+            for j in range(self.x):
+                my_display += " "
             for j in range(self.width):
                 my_display += "#"
             if i < self.height - 1:
