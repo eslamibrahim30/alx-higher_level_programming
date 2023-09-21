@@ -88,6 +88,14 @@ class TestBase(unittest.TestCase):
         self.assertEqual("[Rectangle] (13) 2/1 - 4/6", r.__str__())
         r.update(12, 3)
         self.assertEqual("[Rectangle] (12) 2/1 - 3/6", r.__str__())
+        r.update(height=1)
+        self.assertEqual("[Rectangle] (12) 2/1 - 3/1", r.__str__())
+        r.update(y=1, width=2, x=3, id=89)
+        self.assertEqual("[Rectangle] (89) 3/1 - 2/1", r.__str__())
+        r.update(4, 6, y=8, x=9)
+        self.assertEqual("[Rectangle] (4) 3/1 - 6/1", r.__str__())
+        r.update(1, y=8, x=9)
+        self.assertEqual("[Rectangle] (1) 3/1 - 6/1", r.__str__())
 
 if __name__ == '__main__':
     unittest.main()
