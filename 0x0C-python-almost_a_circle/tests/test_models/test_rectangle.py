@@ -105,7 +105,7 @@ class TestRectangle(unittest.TestCase):
         r2 = Rectangle(3, 11)
         new_dict = rect1_dict
         r2.update(**new_dict)
-        self.assertNotEquals(r1, r2)
+        self.assertNotEqual(r1, r2)
 
 if __name__ == '__main__':
     unittest.main()
