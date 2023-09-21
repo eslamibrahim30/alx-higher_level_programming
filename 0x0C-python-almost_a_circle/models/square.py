@@ -44,3 +44,24 @@ class Square(Rectangle):
         rect_str += "({}) {}/{} ".format(self.id, self.x, self.y)
         rect_str += "- {}".format(self.width)
         return rect_str
+
+    def update(self, *args, **kwargs):
+        """
+        This class method assigns an argument to each attribute
+        of the Square object.
+        """
+        i = 0
+        if args:
+            for arg in args:
+                if i == 0:
+                    self.id = arg
+                elif i == 1:
+                    self.size = arg
+                elif i == 2:
+                    self.x = arg
+                elif i == 3:
+                    self.y = arg
+                i += 1
+        else:
+            for key in kwargs:
+                setattr(self, key, kwargs[key])
