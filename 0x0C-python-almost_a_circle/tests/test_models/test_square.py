@@ -79,5 +79,16 @@ class TestSquare(unittest.TestCase):
         r.update(1, y=8, x=9)
         self.assertEqual("[Square] (1) 3/1 - 6", r.__str__())
 
+    def testSquareToDictionary(self):
+        sq1 = Square(10, 1, 9, 1)
+        check_dict = {'x': 1, 'y': 9, 'id': 1, 'size': 10}
+        sq1_dict = sq1.to_dictionary()
+        self.assertEqual(dict, type(sq1_dict))
+        self.assertEqual(check_dict, sq1_dict)
+        sq2 = Square(3, 11)
+        new_dict = sq1_dict
+        sq2.update(**new_dict)
+        self.assertNotEqual(sq1, sq2)
+
 if __name__ == '__main__':
     unittest.main()
