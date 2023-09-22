@@ -3,6 +3,7 @@
 This module contains the Base class.
 """
 import json
+import os
 
 
 class Base:
@@ -82,10 +83,10 @@ class Base:
         """
         text = ""
         file_name = "{}.json".format(cls.__name__)
+        if not os.path.isfile(file_name):
+            return []
         with open(file_name, "r") as f:
             text = f.read()
-        if len(text) == 0:
-            return []
         json_list = Base.from_json_string(text)
         list_inst = []
         for inst in json_list:
