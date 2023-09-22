@@ -80,9 +80,15 @@ class Base:
         """
         This class method returns a list of instances.
         """
-        text = None
+        text = ""
         file_name = "{}.json".format(cls.__name__)
         with open(file_name, "r") as f:
             text = f.read()
+        if len(text) == 0:
+            return []
         json_list = Base.from_json_string(text)
-        return json_list
+        list_inst = []
+        for inst in json_list:
+            new_inst = cls.create(**inst)
+            list_inst.append(new_inst)
+        return list_inst
