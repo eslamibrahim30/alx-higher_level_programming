@@ -74,3 +74,15 @@ class Base:
             rs = cls(2)
         rs.update(**dictionary)
         return rs
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        This class method returns a list of instances.
+        """
+        text = None
+        file_name = "{}.json".format(cls.__name__)
+        with open(file_name, "r") as f:
+            text = f.read()
+        json_list = Base.from_json_string(text)
+        return json_list
