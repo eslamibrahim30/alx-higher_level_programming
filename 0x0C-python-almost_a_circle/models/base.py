@@ -51,4 +51,3 @@ class Base:
             with open(file_name, "w") as f:
                 text = Base.to_json_string(new_list)
                 f.write(text)
-
