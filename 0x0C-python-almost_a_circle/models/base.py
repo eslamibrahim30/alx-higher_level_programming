@@ -107,17 +107,17 @@ class Base:
                 pass
         else:
             if cls.__name__ == "Rectangle":
-                with open(file_name, "w") as f:
+                with open(file_name, "w", newline='') as f:
                     fieldnames = ['id', 'width', 'height', 'x', 'y']
-                    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                    writer = csv.DictWriter(f, fieldnames=fieldnames)
                     writer.writeheader()
                     for obj in list_objs:
                         writer.writerow(obj.to_dictionary())
 
             else:
-                with open(file_name, "w") as f:
+                with open(file_name, "w", newline='') as f:
                     fieldnames = ['id', 'size', 'x', 'y']
-                    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                    writer = csv.DictWriter(f, fieldnames=fieldnames)
                     writer.writeheader()
                     for obj in list_objs:
                         writer.writerow(obj.to_dictionary())
@@ -131,8 +131,11 @@ class Base:
         if not os.path.isfile(file_name):
             return []
         rs_list = []
-        with open(file_name, "w") as f:
-            reader = csv.DictReader(csvfile)
+        with open(file_name, newline='') as f:
+            reader = csv.DictReader(f)
             for row in reader:
-                rs.append(cls(row))
+                new_obj = cls(2, 3)
+                for key in row:
+                    setattr(new_obj, key, int(row[key]))
+                rs_list.append(new_obj)
         return rs_list
