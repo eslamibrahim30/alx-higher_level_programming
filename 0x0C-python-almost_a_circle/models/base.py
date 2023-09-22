@@ -4,6 +4,7 @@ This module contains the Base class.
 """
 import json
 import os
+import csv
 
 
 class Base:
@@ -93,3 +94,45 @@ class Base:
             new_inst = cls.create(**inst)
             list_inst.append(new_inst)
         return list_inst
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        This class method writes the CSV string representation of
+        list_objs to a file.
+        """
+        file_name = "{}.csv".format(cls.__name__)
+        if list_objs is None or len(list_objs) == 0:
+            with open(file_name, "w", newline='') as f:
+                pass
+        else:
+            if cls.__name__ == "Rectangle":
+                with open(file_name, "w") as f:
+                    fieldnames = ['id', 'width', 'height', 'x', 'y']
+                    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                    writer.writeheader()
+                    for obj in list_objs:
+                        writer.writerow(obj.to_dictionary())
+
+            else:
+                with open(file_name, "w") as f:
+                    fieldnames = ['id', 'size', 'x', 'y']
+                    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                    writer.writeheader()
+                    for obj in list_objs:
+                        writer.writerow(obj.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        This class method returns a list of instances.
+        """
+        file_name = "{}.csv".format(cls.__name__)
+        if not os.path.isfile(file_name):
+            return []
+        rs_list = []
+        with open(file_name, "w") as f:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                rs.append(cls(row))
+        return rs_list
