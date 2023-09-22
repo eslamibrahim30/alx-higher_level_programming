@@ -67,6 +67,10 @@ class Base:
         """
         This class method returns an instance with all attributes already set.
         """
-        rs = cls(2, 3)
+        rs = None
+        if cls.__name__ == "Rectangle":
+            rs = cls(2, 3)
+        else:
+            rs = cls(2)
         rs.update(**dictionary)
         return rs
