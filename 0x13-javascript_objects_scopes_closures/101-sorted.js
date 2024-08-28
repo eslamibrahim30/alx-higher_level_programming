@@ -2,10 +2,9 @@
 const { dict } = require('./101-data.js');
 const newDict = {};
 for (const [key, value] of Object.entries(dict)) {
-  if (value in Object.keys(newDict)) {
-    newDict[value].push(key);
-  } else {
-    newDict[value] = [key];
+  if (!(newDict.hasOwnProperty(value))) {
+    newDict[value] = [];
   }
+  newDict[value].push(key);
 }
 console.log(newDict);
