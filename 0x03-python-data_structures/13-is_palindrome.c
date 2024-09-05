@@ -30,7 +30,7 @@ int is_palindrome(listint_t **head)
 		if (ptr_f->n != ptr_l->n)
 			return (0);
 		if (ptr_f->next == ptr_l)
-			break;
+			return (ptr_f->n == ptr_l->n);
 		ptr_f = ptr_f->next;
 		len--;
 		idx = 0;
