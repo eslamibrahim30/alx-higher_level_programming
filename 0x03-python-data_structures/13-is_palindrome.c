@@ -9,37 +9,42 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *ptr_f = NULL;
-	listint_t *ptr_l = NULL;
+	listint_t *ptr = NULL;
+	int *list_arr = NULL;
 	int len = 0;
-	int idx = 0;
+	int half_len = 0;
+	int i = 0;
 
 	if (head == NULL)
 		return (0);
 	if (*head == NULL)
 		return (1);
-	ptr_f = *head;
-	ptr_l = *head;
-	while (ptr_l->next != NULL)
+	ptr = *head;
+	while (ptr != NULL)
 	{
-		ptr_l = ptr_l->next;
+		ptr = ptr->next;
 		len++;
 	}
-	while (ptr_f != ptr_l)
+	list_arr = (int *)malloc(len * sizeof(int));
+	if (list_arr == NULL)
+		return (0);
+	ptr = *head;
+	i = 0;
+	while (ptr != NULL)
 	{
-		if (ptr_f->n != ptr_l->n)
-			return (0);
-		if (ptr_f->next == ptr_l)
-			return (ptr_f->n == ptr_l->n);
-		ptr_f = ptr_f->next;
-		len--;
-		idx = 0;
-		ptr_l = *head;
-		while (idx != len)
+		list_arr[i] = ptr->n;
+		ptr = ptr->next;
+		i++;
+	}
+	half_len = len / 2;
+	for (i = 0; i <= half_len; i++)
+	{
+		if (list_arr[i] != list_arr[len - i - 1])
 		{
-			ptr_l = ptr_l->next;
-			idx++;
+			free(list_arr);
+			return (0);
 		}
 	}
+	free(list_arr);
 	return (1);
 }
