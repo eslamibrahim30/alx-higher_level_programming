@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 
@@ -36,7 +37,7 @@ listint_t *get_middle(listint_t *head, int len)
 	listint_t *ptr = head;
 
 	mid_idx = (len / 2) + (len % 2) - 1;
-	for (i = 0; i <= mid_idx; i++)
+	for (i = 1; i <= mid_idx; i++)
 		ptr = ptr->next;
 	return (ptr);
 }
@@ -88,6 +89,8 @@ int is_palindrome(listint_t **head)
 	if (*head == NULL)
 		return (1);
 	len = list_len(*head);
+	if (len == 1)
+		return (1);
 	middle = get_middle(*head, len);
 	reversed_second_half = reverse_list(middle->next);
 	middle->next = NULL;
