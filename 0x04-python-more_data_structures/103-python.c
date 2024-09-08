@@ -29,9 +29,11 @@ void print_python_bytes(PyObject *p)
 	byte = (unsigned char *)obj + 32;
 	i = (size + 1 > 10 ? 10 : size + 1);
 	printf("  first %li bytes: ", i);
+	printf("%02x", (int)*byte);
+	i--;
 	while (i != 0)
 	{
-		printf("%02x ", (int)*byte);
+		printf(" %02x", (int)*byte);
 		byte++;
 		i--;
 	}
