@@ -21,17 +21,15 @@ def isOk(queens):
     return 1
 
 
-def backtrack(sol, n):
+def backtrack(sol, row, n):
     if len(sol) == n:
         print(sol)
         return
     for i in range(n):
-        for j in range(n):
-            if len(sol) == 0 or sol[-1][0] < i:
-                sol.append([i, j])
-                if isOk(sol):
-                    backtrack(sol, n)
-                sol.pop()
+        sol.append([row, i])
+        if isOk(sol):
+            backtrack(sol, row + 1, n)
+        sol.pop()
 
 
 def main():
@@ -46,7 +44,7 @@ def main():
     if n < 4:
         print("N must be at least 4")
         sys.exit(1)
-    backtrack([], n)
+    backtrack([], 0,  n)
 
 
 if __name__ == "__main__":
