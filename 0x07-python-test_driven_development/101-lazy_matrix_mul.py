@@ -9,4 +9,4 @@ def lazy_matrix_mul(m_a, m_b):
     """
     This function multiplies 2 matrices.
     """
-    return np.matmul(mat_a, mat_b)
+    return np.matmul(m_a, m_b)
