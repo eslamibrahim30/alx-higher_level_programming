@@ -2,7 +2,7 @@
 >>> say_my_name("Islam", "Ahmed")
 My name is Islam Ahmed
 >>> say_my_name("Ali",)
-My name is Ali
+My name is Ali 
 >>> say_my_name(None,)
 Traceback (most recent call last):
 	...
