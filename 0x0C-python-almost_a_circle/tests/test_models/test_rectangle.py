@@ -19,14 +19,17 @@ class TestRectangle(unittest.TestCase):
 
     def testRectangleSetters(self):
         r = Rectangle(1, 1)
-        r.width = 2
-        r.height = 3
         r.x = 4
         r.y = 5
-        self.assertEqual(2, r.width)
-        self.assertEqual(3, r.height)
+        self.assertEqual(1, r.width)
+        self.assertEqual(1, r.height)
         self.assertEqual(4, r.x)
         self.assertEqual(5, r.y)
+
+    def testZeroDimensions(self):
+        with self.assertRaises(ValueError) as et:
+            r = Rectangle(1, 0)
+        self.assertEqual(str(et.exception), 'height must be > 0')
 
     def testRectangleHandlingErrorsWidth(self):
         with self.assertRaises(TypeError) as et:

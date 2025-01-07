@@ -37,5 +37,18 @@ class TestBase(unittest.TestCase):
         self.assertEqual(type(json_dictionary), str)
         self.assertEqual(json_dictionary, expected_json)
 
+    def testBaseFromJSONString(self):
+        self.assertEqual(Base.from_json_string(None), list())
+        self.assertEqual(Base.from_json_string("[]"), list())
+        json_string = '[{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}]'
+        outputed_json = Base.from_json_string(json_string)
+        expected_json = [{'x': 2, 'width': 10, 'id': 1, 'height': 7, 'y': 8}]
+        self.assertEqual(outputed_json, expected_json)
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+
 if __name__ == '__main__':
     unittest.main()
