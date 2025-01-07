@@ -4,6 +4,7 @@ Unittest for Rectangle class.
 """
 import unittest
 from models.rectangle import Rectangle
+from unittest.mock import patch, mock_open
 
 
 class TestRectangle(unittest.TestCase):
@@ -133,6 +134,11 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r4.x, 3)
         self.assertEqual(r5.x, 3)
         self.assertEqual(r5.y, 4)
+
+    def testRectangleSaveToFile(self):
+        open_mock_1 = mock_open()
+        with patch("models.rectangle.open", open_mock_1, create=True):
+            r1 = Rectangle.save_to_file(None)
 
 
 if __name__ == '__main__':
