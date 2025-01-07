@@ -155,6 +155,13 @@ class TestRectangle(unittest.TestCase):
             Rectangle.save_to_file([Rectangle(1, 2)])
         open_mock.assert_called_with("Rectangle.json", "w")
 
+    def testRectangleLoadFromFile(self):
+        self.assertEqual(Rectangle.load_from_file(), list())
+        open_mock = mock_open()
+        with patch("models.base.open", open_mock, create=True):
+            Rectangle.save_to_file([])
+        self.assertEqual(Rectangle.load_from_file(), [])
+
 
 if __name__ == '__main__':
     unittest.main()
