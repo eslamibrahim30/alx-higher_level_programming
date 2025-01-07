@@ -110,5 +110,30 @@ class TestRectangle(unittest.TestCase):
         r2.update(**new_dict)
         self.assertNotEqual(r1, r2)
 
+    def testRectangleCreate(self):
+        r1 = Rectangle.create(**{'id': 1})
+        r2 = Rectangle.create(**{'id': 2, 'width': 1})
+        r3 = Rectangle.create(**{'id': 3, 'width': 1, 'height': 2})
+        r4 = Rectangle.create(**{'id': 4, 'width': 1, 'height': 2, 'x': 3})
+        r5 = Rectangle.create(
+            **{'id': 5, 'width': 1, 'height': 2, 'x': 3, 'y': 4}
+        )
+        self.assertEqual(r1.id, 1)
+        self.assertEqual(r2.id, 2)
+        self.assertEqual(r3.id, 3)
+        self.assertEqual(r4.id, 4)
+        self.assertEqual(r5.id, 5)
+        self.assertEqual(r2.width, 1)
+        self.assertEqual(r3.width, 1)
+        self.assertEqual(r4.width, 1)
+        self.assertEqual(r5.width, 1)
+        self.assertEqual(r3.height, 2)
+        self.assertEqual(r4.height, 2)
+        self.assertEqual(r5.height, 2)
+        self.assertEqual(r4.x, 3)
+        self.assertEqual(r5.x, 3)
+        self.assertEqual(r5.y, 4)
+
+
 if __name__ == '__main__':
     unittest.main()
