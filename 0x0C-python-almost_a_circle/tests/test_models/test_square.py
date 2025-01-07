@@ -4,6 +4,7 @@ Unittest for Square class.
 """
 import unittest
 from models.square import Square
+from unittest.mock import patch, mock_open
 
 
 class TestSquare(unittest.TestCase):
@@ -110,6 +111,33 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(r3.x, 2)
         self.assertEqual(r4.x, 2)
         self.assertEqual(r4.y, 3)
+
+    def testSquareSaveToFileNone(self):
+        open_mock = mock_open()
+        with patch("models.base.open", open_mock, create=True):
+            Square.save_to_file(None)
+        open_mock.assert_called_with("Square.json", "w")
+        open_mock.return_value.write.assert_called_once_with("[]")
+
+    def testSquareSaveToFileEmpty(self):
+        open_mock = mock_open()
+        with patch("models.base.open", open_mock, create=True):
+            Square.save_to_file([])
+        open_mock.assert_called_with("Square.json", "w")
+        open_mock.return_value.write.assert_called_once_with("[]")
+
+    def testSquareSaveToFileData(self):
+        open_mock = mock_open()
+        with patch("models.base.open", open_mock, create=True):
+            Square.save_to_file([Square(1)])
+        open_mock.assert_called_with("Square.json", "w")
+
+    def testSquareLoadFromFile(self):
+        self.assertEqual(Square.load_from_file(), list())
+        open_mock = mock_open()
+        with patch("models.base.open", open_mock, create=True):
+            Square.save_to_file([])
+        self.assertEqual(Square.load_from_file(), [])
 
 
 if __name__ == '__main__':
