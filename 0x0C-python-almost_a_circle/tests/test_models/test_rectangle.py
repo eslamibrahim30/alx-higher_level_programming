@@ -135,10 +135,25 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r5.x, 3)
         self.assertEqual(r5.y, 4)
 
-    def testRectangleSaveToFile(self):
-        open_mock_1 = mock_open()
-        with patch("models.rectangle.open", open_mock_1, create=True):
-            r1 = Rectangle.save_to_file(None)
+    def testRectangleSaveToFileNone(self):
+        open_mock = mock_open()
+        with patch("models.base.open", open_mock, create=True):
+            Rectangle.save_to_file(None)
+        open_mock.assert_called_with("Rectangle.json", "w")
+        open_mock.return_value.write.assert_called_once_with("[]")
+
+    def testRectangleSaveToFileEmpty(self):
+        open_mock = mock_open()
+        with patch("models.base.open", open_mock, create=True):
+            Rectangle.save_to_file([])
+        open_mock.assert_called_with("Rectangle.json", "w")
+        open_mock.return_value.write.assert_called_once_with("[]")
+
+    def testRectangleSaveToFileData(self):
+        open_mock = mock_open()
+        with patch("models.base.open", open_mock, create=True):
+            Rectangle.save_to_file([Rectangle(1, 2)])
+        open_mock.assert_called_with("Rectangle.json", "w")
 
 
 if __name__ == '__main__':
