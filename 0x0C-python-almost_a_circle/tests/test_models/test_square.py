@@ -19,6 +19,11 @@ class TestSquare(unittest.TestCase):
         r.size = 2
         self.assertEqual(2, r.size)
 
+    def testNegativeDimensions(self):
+        with self.assertRaises(ValueError) as ev:
+            r = Square(-1)
+        self.assertEqual(str(ev.exception), 'width must be > 0')
+
     def testSquareHandlingErrorsSize(self):
         with self.assertRaises(TypeError) as et:
             r = Square('1', 3, 4)
@@ -89,6 +94,23 @@ class TestSquare(unittest.TestCase):
         new_dict = sq1_dict
         sq2.update(**new_dict)
         self.assertNotEqual(sq1, sq2)
+
+    def testSquareCreate(self):
+        r1 = Square.create(**{'id': 1})
+        r2 = Square.create(**{'id': 2, 'size': 1})
+        r3 = Square.create(**{'id': 3, 'size': 1, 'x': 2})
+        r4 = Square.create(**{'id': 4, 'size': 1, 'x': 2, 'y': 3})
+        self.assertEqual(r1.id, 1)
+        self.assertEqual(r2.id, 2)
+        self.assertEqual(r3.id, 3)
+        self.assertEqual(r4.id, 4)
+        self.assertEqual(r2.size, 1)
+        self.assertEqual(r3.size, 1)
+        self.assertEqual(r4.size, 1)
+        self.assertEqual(r3.x, 2)
+        self.assertEqual(r4.x, 2)
+        self.assertEqual(r4.y, 3)
+
 
 if __name__ == '__main__':
     unittest.main()
